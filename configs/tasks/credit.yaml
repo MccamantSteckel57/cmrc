@@ -1,0 +1,10 @@
+credit:
+  panels: [german, taiwan]
+  aggregate_budget: 300000
+  standardise: train_block_only
+  target: default_indicator
+  low_prevalence_band: [0.067, 0.081]
+provenance:
+  panels: paper_sec_4_1_credit_layer
+  aggregate_budget: paper_sec_4_1_aggregate_arm
+  standardise: paper_sec_4_1_train_only_features

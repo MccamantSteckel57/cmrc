@@ -1,0 +1,6 @@
+har:
+  variant: linear
+  log_target: false
+  ridge: 0.0
+provenance:
+  variant: paper_table_1_har_rv

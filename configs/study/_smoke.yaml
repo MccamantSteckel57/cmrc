@@ -1,0 +1,20 @@
+study:
+  name: smoke
+  reporting: false
+  note: for unit-test smoke only; do not use for reporting
+train:
+  epochs: 2
+  batch_size: 8
+  lr: 0.005
+  weight_decay: 0.0
+  warmup_fraction: 0.0
+  grad_clip: 1.0
+  seed: 13
+  precision: fp32
+  world_size: 1
+protocol:
+  budget: 0.10
+  grid_size: 101
+  shift_band: 0.0
+provenance:
+  all_keys: unit_test_only

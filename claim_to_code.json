@@ -1,0 +1,497 @@
+{
+  "project": "Distribution-Free Uncertainty Quantification for Structured Financial Prediction via Conformal Risk Control",
+  "package": "coupled_monotone_risk",
+  "claims": [
+    {
+      "id": "C01",
+      "paper": {
+        "section": "Sec. 3.2",
+        "anchor": "Eq. (2)",
+        "statement": "one shared scalar enters every task through a continuous strictly increasing coupling map"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/coupling/maps.py",
+          "symbol": "CouplingMap.__call__"
+        },
+        {
+          "path": "src/coupled_monotone_risk/coupling/maps.py",
+          "symbol": "CouplingMap.injective_share"
+        }
+      ],
+      "checks": [
+        "I03"
+      ],
+      "manuscript_checks": [
+        "M09"
+      ],
+      "status": "PASS",
+      "manuscript_status": "FAIL"
+    },
+    {
+      "id": "C02",
+      "paper": {
+        "section": "Sec. 3.2",
+        "anchor": "Eq. (3), Lemma 1",
+        "statement": "the weighted composite is monotone on the shared axis"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/coupling/composite.py",
+          "symbol": "CompositeRisk.risk"
+        },
+        {
+          "path": "src/coupled_monotone_risk/coupling/composite.py",
+          "symbol": "CompositeRisk.non_monotone_share"
+        }
+      ],
+      "checks": [
+        "I03"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C03",
+      "paper": {
+        "section": "Sec. 3.2",
+        "anchor": "Eq. (4)-(6), Proposition 1",
+        "statement": "budget shares equalise the marginal width cost and satisfy the budget identity"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/coupling/allocation.py",
+          "symbol": "equalised_marginal_allocation"
+        },
+        {
+          "path": "src/coupled_monotone_risk/risks/cost.py",
+          "symbol": "CostCurve.marginal_points"
+        }
+      ],
+      "checks": [
+        "I01"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C04",
+      "paper": {
+        "section": "Sec. 3.3",
+        "anchor": "Algorithm 1 lines 17-21",
+        "statement": "the calibrated level is the lowest grid point meeting the shifted criterion"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/coupling/composite.py",
+          "symbol": "find_crossing"
+        },
+        {
+          "path": "src/coupled_monotone_risk/calibration/cmrc.py",
+          "symbol": "CmrcCalibrator.fit"
+        }
+      ],
+      "checks": [
+        "I02",
+        "I04"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C05",
+      "paper": {
+        "section": "Sec. 3.3",
+        "anchor": "Algorithm 1 Phase A",
+        "statement": "width-cost curves are fitted by isotonic regression and their residual is reported"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/risks/isotonic.py",
+          "symbol": "fit_decreasing"
+        },
+        {
+          "path": "src/coupled_monotone_risk/risks/cost.py",
+          "symbol": "CostCurve.from_curve"
+        }
+      ],
+      "checks": [
+        "U02",
+        "I01"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C06",
+      "paper": {
+        "section": "Remark 1",
+        "anchor": "Algorithm 1 Phase D",
+        "statement": "risk is averaged over causal strata with block weights"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/coupling/composite.py",
+          "symbol": "StratifiedView.from_labels"
+        },
+        {
+          "path": "src/coupled_monotone_risk/data/strata.py",
+          "symbol": "assign_strata"
+        }
+      ],
+      "checks": [
+        "I05"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C07",
+      "paper": {
+        "section": "Remark 1",
+        "anchor": "Sec. 3.4",
+        "statement": "the calibration-to-test shift enters as one declared band"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/calibration/shift_band.py",
+          "symbol": "ShiftBand.certificate_level"
+        }
+      ],
+      "checks": [
+        "I05"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C08",
+      "paper": {
+        "section": "Sec. 3.4",
+        "anchor": "Theorem 1, Eq. (8)-(9)",
+        "statement": "the joint finite-sample bound separates sampling and estimation slack"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/bounds/finite_sample.py",
+          "symbol": "theorem1_bound"
+        },
+        {
+          "path": "src/coupled_monotone_risk/bounds/finite_sample.py",
+          "symbol": "sampling_slack"
+        }
+      ],
+      "checks": [
+        "I02"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C09",
+      "paper": {
+        "section": "Sec. 3.4",
+        "anchor": "Eq. (10), Figure 5",
+        "statement": "the budget-inflation relation brackets the exponent between zero and one"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/bounds/inflation.py",
+          "symbol": "inflation_bounds"
+        },
+        {
+          "path": "src/coupled_monotone_risk/bounds/inflation.py",
+          "symbol": "measured_exponent"
+        }
+      ],
+      "checks": [
+        "U06"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C10",
+      "paper": {
+        "section": "Sec. 3.4",
+        "anchor": "adaptive variant",
+        "statement": "stratum weights follow an exponential update with a long-run statement"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/calibration/adaptive.py",
+          "symbol": "AdaptiveStratumWeights.update"
+        },
+        {
+          "path": "src/coupled_monotone_risk/calibration/adaptive.py",
+          "symbol": "drift_term"
+        }
+      ],
+      "checks": [
+        "I05"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C11",
+      "paper": {
+        "section": "Sec. 4.1",
+        "anchor": "regime taxonomy",
+        "statement": "seven frozen windows label results after they are produced"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/data/regimes.py",
+          "symbol": "REGIME_WINDOWS"
+        },
+        {
+          "path": "src/coupled_monotone_risk/data/regimes.py",
+          "symbol": "label_for"
+        }
+      ],
+      "checks": [
+        "D01"
+      ],
+      "manuscript_checks": [
+        "M01",
+        "M02"
+      ],
+      "status": "PASS",
+      "manuscript_status": "PASS"
+    },
+    {
+      "id": "C12",
+      "paper": {
+        "section": "Sec. 4.1",
+        "anchor": "protocol",
+        "statement": "blocks are chronological with an embargo and a rolling window"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/data/splits.py",
+          "symbol": "plan_blocks"
+        },
+        {
+          "path": "src/coupled_monotone_risk/data/splits.py",
+          "symbol": "rolling_windows"
+        }
+      ],
+      "checks": [
+        "I04"
+      ],
+      "manuscript_checks": [
+        "M07"
+      ],
+      "status": "PASS",
+      "manuscript_status": "FAIL"
+    },
+    {
+      "id": "C13",
+      "paper": {
+        "section": "Sec. 4.2",
+        "anchor": "HAR family",
+        "statement": "daily, weekly and monthly realized-variance lags drive the point forecast"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/data/features.py",
+          "symbol": "har_design"
+        },
+        {
+          "path": "src/coupled_monotone_risk/models/har.py",
+          "symbol": "HarForecaster.fit"
+        }
+      ],
+      "checks": [
+        "U07"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C14",
+      "paper": {
+        "section": "Sec. 4.2",
+        "anchor": "backbones",
+        "statement": "patch-transformer and selective state-space backbones supply point forecasts"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/models/patchtst.py",
+          "symbol": "PatchTST.forward"
+        },
+        {
+          "path": "src/coupled_monotone_risk/models/mamba2.py",
+          "symbol": "SelectiveStateSpaceBlock.forward"
+        }
+      ],
+      "checks": [
+        "S01",
+        "G03"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C15",
+      "paper": {
+        "section": "Sec. 4.2",
+        "anchor": "metrics",
+        "statement": "QLIKE, MSE, MDA, MAD, Winkler and CRPS are computed under one protocol"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/metrics/point.py",
+          "symbol": "qlike"
+        },
+        {
+          "path": "src/coupled_monotone_risk/metrics/interval.py",
+          "symbol": "winkler_score"
+        }
+      ],
+      "checks": [
+        "U05"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C16",
+      "paper": {
+        "section": "Sec. 4.6",
+        "anchor": "Table 4.6",
+        "statement": "each regime is scored inside its own window with a binomial interval"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/evaluation/protocol.py",
+          "symbol": "summarise"
+        },
+        {
+          "path": "src/coupled_monotone_risk/metrics/backtest.py",
+          "symbol": "kupiec_pof"
+        }
+      ],
+      "checks": [
+        "I04"
+      ],
+      "manuscript_checks": [
+        "M02",
+        "M13"
+      ],
+      "status": "PASS",
+      "manuscript_status": "PASS"
+    },
+    {
+      "id": "C17",
+      "paper": {
+        "section": "Sec. 4.4",
+        "anchor": "Figure 3",
+        "statement": "coupling, monotonicity and regime awareness are ablated separately"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/evaluation/ablations.py",
+          "symbol": "independent_arm"
+        },
+        {
+          "path": "src/coupled_monotone_risk/evaluation/ablations.py",
+          "symbol": "free_threshold_arm"
+        }
+      ],
+      "checks": [
+        "I04"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C18",
+      "paper": {
+        "section": "Sec. 4.7",
+        "anchor": "width claim",
+        "statement": "the joint width is compared with independent calibrators at the same level"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/evaluation/tradeoff.py",
+          "symbol": "width_comparison"
+        },
+        {
+          "path": "src/coupled_monotone_risk/evaluation/tradeoff.py",
+          "symbol": "dispersion_ratio"
+        }
+      ],
+      "checks": [
+        "I04"
+      ],
+      "manuscript_checks": [
+        "M05"
+      ],
+      "status": "PASS",
+      "manuscript_status": "PASS"
+    },
+    {
+      "id": "C19",
+      "paper": {
+        "section": "Sec. 4.7",
+        "anchor": "phase-alignment screen",
+        "statement": "a residual rank correlation below 0.3 voids the joint-tightness statement"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/bounds/inflation.py",
+          "symbol": "screen_alignment"
+        },
+        {
+          "path": "src/coupled_monotone_risk/bounds/inflation.py",
+          "symbol": "residual_rank_correlation"
+        }
+      ],
+      "checks": [
+        "U06"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    },
+    {
+      "id": "C20",
+      "paper": {
+        "section": "Sec. 4.2",
+        "anchor": "Panel B baselines",
+        "statement": "adaptive and quantile baselines run under the same protocol"
+      },
+      "code": [
+        {
+          "path": "src/coupled_monotone_risk/calibration/baselines.py",
+          "symbol": "OnlineConformal.run"
+        },
+        {
+          "path": "src/coupled_monotone_risk/calibration/baselines.py",
+          "symbol": "ConformalisedQuantile.fit"
+        }
+      ],
+      "checks": [
+        "U08"
+      ],
+      "manuscript_checks": [],
+      "status": "PASS",
+      "manuscript_status": null
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+volatility:
+  horizon: 1
+  lags: [1, 5, 22]
+  target: realized_variance
+  subset: 21
+  snapshot: "2022-06-28"
+provenance:
+  horizon: paper_table_1_h_equals_1
+  lags: paper_sec_4_2_har_family
+  subset: paper_sec_4_1_omrl_21
+  snapshot: paper_sec_4_1_archive_snapshot

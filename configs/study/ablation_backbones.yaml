@@ -1,0 +1,12 @@
+study:
+  name: ablation_backbones
+  reporting: false
+  backbones: [har, har_log, patchtst, mamba2]
+  layer: volatility
+train:
+  epochs: 40
+  batch_size: 64
+  lr: 0.001
+  seed: 13
+provenance:
+  backbones: paper_table_1_panel_a

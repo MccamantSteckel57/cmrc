@@ -1,0 +1,12 @@
+study:
+  name: supplementary_shift_band
+  reporting: false
+  band_values: [0.0, 0.005, 0.01, 0.02]
+  layer: credit
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  seed: 13
+provenance:
+  band_values: paper_remark_1_declared_band

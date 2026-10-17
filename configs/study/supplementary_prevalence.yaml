@@ -1,0 +1,12 @@
+study:
+  name: supplementary_prevalence
+  reporting: false
+  layer: credit
+  levels: [0.10, 0.15, 0.20, 0.25, 0.30]
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  seed: 13
+provenance:
+  levels: paper_figure_4_lower_left

@@ -1,0 +1,12 @@
+study:
+  name: supplementary_horizon
+  reporting: false
+  layer: volatility
+  horizons: [1, 5, 22]
+train:
+  epochs: 40
+  batch_size: 64
+  lr: 0.001
+  seed: 13
+provenance:
+  horizons: paper_sec_4_5_per_horizon

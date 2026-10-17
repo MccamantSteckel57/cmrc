@@ -1,0 +1,432 @@
+{
+  "source": {
+    "document": "Distribution-Free Uncertainty Quantification for Structured Financial Prediction via Conformal Risk Control",
+    "pages": "Table 1 p. 19; Table 4.6 p. 21; Figure 1 p. 11; Figure 3 p. 25; Algorithm 1 p. 13",
+    "note": "Verbatim transcription used only to audit the manuscript's own arithmetic. No cell below is produced by this release."
+  },
+  "regimes": [
+    {
+      "label": "R1",
+      "start": "2004-01-02",
+      "end": "2007-10-08",
+      "n": 949,
+      "static_cov": 0.928,
+      "cmrc_cov": 0.937,
+      "static_gap_pp": 4.7,
+      "cmrc_gap_pp": 3.5,
+      "static_width": 18.9,
+      "cmrc_width": 17.4,
+      "static_ci": [
+        0.912,
+        0.944
+      ],
+      "cmrc_ci": [
+        0.922,
+        0.952
+      ]
+    },
+    {
+      "label": "R2",
+      "start": "2007-10-09",
+      "end": "2009-03-09",
+      "n": 356,
+      "static_cov": 0.869,
+      "cmrc_cov": 0.906,
+      "static_gap_pp": 12.0,
+      "cmrc_gap_pp": 2.4,
+      "static_width": 39.6,
+      "cmrc_width": 33.5,
+      "static_ci": [
+        0.834,
+        0.904
+      ],
+      "cmrc_ci": [
+        0.876,
+        0.936
+      ]
+    },
+    {
+      "label": "R3",
+      "start": "2009-03-10",
+      "end": "2020-02-18",
+      "n": 2760,
+      "static_cov": 0.921,
+      "cmrc_cov": 0.931,
+      "static_gap_pp": 6.3,
+      "cmrc_gap_pp": 2.2,
+      "static_width": 16.2,
+      "cmrc_width": 15.2,
+      "static_ci": [
+        0.911,
+        0.931
+      ],
+      "cmrc_ci": [
+        0.922,
+        0.94
+      ]
+    },
+    {
+      "label": "R4",
+      "start": "2020-02-19",
+      "end": "2020-03-23",
+      "n": 23,
+      "static_cov": 0.826,
+      "cmrc_cov": 0.892,
+      "static_gap_pp": 12.6,
+      "cmrc_gap_pp": 2.6,
+      "static_width": 74.2,
+      "cmrc_width": 61.8,
+      "static_ci": [
+        0.671,
+        0.981
+      ],
+      "cmrc_ci": [
+        0.765,
+        1.0
+      ]
+    },
+    {
+      "label": "R5",
+      "start": "2020-03-24",
+      "end": "2022-01-02",
+      "n": 448,
+      "static_cov": 0.917,
+      "cmrc_cov": 0.928,
+      "static_gap_pp": 5.6,
+      "cmrc_gap_pp": 2.4,
+      "static_width": 17.9,
+      "cmrc_width": 16.7,
+      "static_ci": [
+        0.891,
+        0.943
+      ],
+      "cmrc_ci": [
+        0.904,
+        0.952
+      ]
+    },
+    {
+      "label": "R6",
+      "start": "2022-01-03",
+      "end": "2022-10-12",
+      "n": 193,
+      "static_cov": 0.874,
+      "cmrc_cov": 0.898,
+      "static_gap_pp": 11.4,
+      "cmrc_gap_pp": 2.3,
+      "static_width": 28.4,
+      "cmrc_width": 25.3,
+      "static_ci": [
+        0.827,
+        0.921
+      ],
+      "cmrc_ci": [
+        0.855,
+        0.941
+      ]
+    },
+    {
+      "label": "R7",
+      "start": "2022-10-13",
+      "end": "2026-10-09",
+      "n": 1006,
+      "static_cov": 0.924,
+      "cmrc_cov": 0.933,
+      "static_gap_pp": 6.1,
+      "cmrc_gap_pp": 2.7,
+      "static_width": 16.8,
+      "cmrc_width": 15.9,
+      "static_ci": [
+        0.908,
+        0.94
+      ],
+      "cmrc_ci": [
+        0.918,
+        0.948
+      ]
+    }
+  ],
+  "panel_a": [
+    {
+      "method": "HAR-RV",
+      "qlike": 0.20083,
+      "mse": 0.00118,
+      "mda": 35.475,
+      "mad": 0.01082,
+      "coverage": 0.868,
+      "width": 34.8,
+      "winkler": 78.4,
+      "crps": 0.4021,
+      "source": "P"
+    },
+    {
+      "method": "HAR-RVlog",
+      "qlike": 0.20524,
+      "mse": 0.00129,
+      "mda": 35.094,
+      "mad": 0.0095,
+      "coverage": 0.871,
+      "width": 34.1,
+      "winkler": 76.9,
+      "crps": 0.3955,
+      "source": "P"
+    },
+    {
+      "method": "CHAR",
+      "qlike": 0.20435,
+      "mse": 0.00117,
+      "mda": 36.988,
+      "mad": 0.01081,
+      "coverage": 0.866,
+      "width": 35.4,
+      "winkler": 79.8,
+      "crps": 0.4087,
+      "source": "P"
+    },
+    {
+      "method": "Realized GARCH",
+      "qlike": 0.53269,
+      "mse": 0.00804,
+      "mda": 34.023,
+      "mad": 0.03359,
+      "coverage": 0.852,
+      "width": 51.6,
+      "winkler": 121.3,
+      "crps": 0.6134,
+      "source": "P"
+    },
+    {
+      "method": "ARFIMA",
+      "qlike": 0.9619,
+      "mse": 0.0012,
+      "mda": 37.888,
+      "mad": 0.01055,
+      "coverage": 0.861,
+      "width": 36.2,
+      "winkler": 82.1,
+      "crps": 0.4203,
+      "source": "P"
+    },
+    {
+      "method": "TFM512_PT",
+      "qlike": 0.19253,
+      "mse": 0.00123,
+      "mda": 34.618,
+      "mad": 0.00966,
+      "coverage": 0.879,
+      "width": 29.7,
+      "winkler": 66.2,
+      "crps": 0.3448,
+      "source": "P"
+    },
+    {
+      "method": "TFM64_IL",
+      "qlike": 0.1986,
+      "mse": 0.00126,
+      "mda": 38.058,
+      "mad": 0.00979,
+      "coverage": 0.877,
+      "width": 30.4,
+      "winkler": 68.1,
+      "crps": 0.3532,
+      "source": "P"
+    },
+    {
+      "method": "TFM64_ILlog",
+      "qlike": 0.20805,
+      "mse": 0.00115,
+      "mda": 38.592,
+      "mad": 0.00937,
+      "coverage": 0.881,
+      "width": 29.1,
+      "winkler": 64.9,
+      "crps": 0.3384,
+      "source": "P"
+    },
+    {
+      "method": "CMRC PatchTST",
+      "qlike": 0.1982,
+      "mse": 0.00118,
+      "mda": 37.412,
+      "mad": 0.00961,
+      "coverage": 0.926,
+      "width": 26.0,
+      "winkler": 62.4,
+      "crps": 0.3184,
+      "source": "O"
+    },
+    {
+      "method": "CMRC Mamba-2",
+      "qlike": 0.1996,
+      "mse": 0.0012,
+      "mda": 37.058,
+      "mad": 0.00974,
+      "coverage": 0.924,
+      "width": 26.8,
+      "winkler": 64.1,
+      "crps": 0.3261,
+      "source": "O"
+    },
+    {
+      "method": "CMRC frozen TSFM",
+      "qlike": 0.1935,
+      "mse": 0.00119,
+      "mda": 35.907,
+      "mad": 0.0097,
+      "coverage": 0.918,
+      "width": 27.4,
+      "winkler": 65.9,
+      "crps": 0.3317,
+      "source": "O"
+    },
+    {
+      "method": "CMRC HAR",
+      "qlike": 0.2021,
+      "mse": 0.00124,
+      "mda": 35.512,
+      "mad": 0.01078,
+      "coverage": 0.921,
+      "width": 31.2,
+      "winkler": 72.6,
+      "crps": 0.3708,
+      "source": "O"
+    }
+  ],
+  "panel_b": [
+    {
+      "method": "ACI + AR",
+      "amzn_cov": 0.894,
+      "amzn_size": null,
+      "googl_cov": 0.872,
+      "googl_size": null,
+      "max_gap_pp": 2.8,
+      "source": "P"
+    },
+    {
+      "method": "ACI + Transformer",
+      "amzn_cov": 0.906,
+      "amzn_size": null,
+      "googl_cov": 0.843,
+      "googl_size": null,
+      "max_gap_pp": 5.7,
+      "source": "P"
+    },
+    {
+      "method": "Conformal P-control + AR",
+      "amzn_cov": 0.894,
+      "amzn_size": 17.6,
+      "googl_cov": 0.895,
+      "googl_size": 19.2,
+      "max_gap_pp": 0.6,
+      "source": "P"
+    },
+    {
+      "method": "Conformal P-control + Transformer",
+      "amzn_cov": 0.887,
+      "amzn_size": 70.4,
+      "googl_cov": 0.817,
+      "googl_size": 281.0,
+      "max_gap_pp": 8.3,
+      "source": "P"
+    },
+    {
+      "method": "Conformal PI-control + AR",
+      "amzn_cov": 0.892,
+      "amzn_size": 17.9,
+      "googl_cov": 0.896,
+      "googl_size": 18.6,
+      "max_gap_pp": 0.8,
+      "source": "P"
+    },
+    {
+      "method": "Conformal PI-control + Transformer",
+      "amzn_cov": 0.891,
+      "amzn_size": 74.8,
+      "googl_cov": 0.897,
+      "googl_size": 108.0,
+      "max_gap_pp": 0.9,
+      "source": "P"
+    },
+    {
+      "method": "Clipped ACI + AR",
+      "amzn_cov": 0.881,
+      "amzn_size": 19.5,
+      "googl_cov": 0.889,
+      "googl_size": 20.4,
+      "max_gap_pp": 1.9,
+      "source": "P"
+    },
+    {
+      "method": "Split conformal",
+      "amzn_cov": 0.874,
+      "amzn_size": 21.3,
+      "googl_cov": 0.868,
+      "googl_size": 22.9,
+      "max_gap_pp": 3.2,
+      "source": "O"
+    },
+    {
+      "method": "CQR",
+      "amzn_cov": 0.907,
+      "amzn_size": 16.4,
+      "googl_cov": 0.893,
+      "googl_size": 18.1,
+      "max_gap_pp": 0.7,
+      "source": "O"
+    },
+    {
+      "method": "CMRC PatchTST",
+      "amzn_cov": 0.905,
+      "amzn_size": 14.8,
+      "googl_cov": 0.9,
+      "googl_size": 80.0,
+      "max_gap_pp": 0.5,
+      "source": "O"
+    }
+  ],
+  "algorithm": {
+    "phases": [
+      "A",
+      "C",
+      "D",
+      "E"
+    ],
+    "expected": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "block_notation": "0 < t1 < t2 < t3 < N",
+    "block_notation_has_equation": false
+  },
+  "table": {
+    "printed_panels": [
+      "A",
+      "B"
+    ],
+    "referenced_panels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "claims": {
+    "figure1_cmrc_deviation_pp": 0.3,
+    "discussion_static_gap_pp": 12.4,
+    "width_band": [
+      1.09,
+      1.14
+    ],
+    "width_cap": 1.15,
+    "abstract_best_published_qlike": 0.19253,
+    "abstract_own_qlike": 0.1982,
+    "abstract_best_published_mse": 0.00115,
+    "abstract_own_mse": 0.00118,
+    "figure3_caption_phrase": "mean of at least three runs per cell",
+    "figure3_caption_occurrences": 2,
+    "stress_gap_margin_pp": 3.0
+  }
+}

@@ -1,0 +1,14 @@
+study:
+  name: ablation_coupling
+  reporting: false
+  arms: [independent, coupling_uniform, full]
+  backbones: [credit_mlp]
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  seed: 13
+protocol_overrides:
+  budget: 0.10
+provenance:
+  arms: paper_sec_4_4_figure_3

@@ -1,0 +1,9 @@
+returns:
+  symbols: [AMZN, GOOGL]
+  context: 32
+  target: one_step_log_return
+  volatility_window: 22
+provenance:
+  symbols: paper_sec_4_1_return_layer
+  context: engineering_default
+  volatility_window: engineering_default

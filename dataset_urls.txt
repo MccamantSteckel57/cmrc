@@ -1,0 +1,24 @@
+Statlog German Credit (UCI 144)
+https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
+license: CC BY 4.0
+files: german.data (79,793 bytes), german.data-numeric (102,000 bytes)
+sha256: b21f3d81db8071257d5ff1deaeba1fd4303b62712e6fcc9715c7a86202cb5871
+sha256: 2752b044394958ab6dd193a0b56ca0f0b3a2d8bc7cb8c008e35a5e84bbec02f8
+status: reachable, content matches the documented 1000-row credit panel
+
+Default of Credit Card Clients (UCI 350)
+https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients
+license: CC BY 4.0
+files: default of credit card clients.xls (5,539,328 bytes)
+sha256: 30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933
+status: reachable, content matches the documented 30000-row panel
+
+Home Credit Default Risk (Kaggle competition release)
+https://www.kaggle.com/competitions/home-credit-default-risk/data
+license: Home Credit competition rules
+status: reachable landing page, download requires a Kaggle account
+
+Oxford-Man Institute Realized Library
+https://www.oxford-man.ox.ac.uk/research/realized-library/
+license: Oxford-Man Institute realized-library terms of use
+status: landing page reachable; the file endpoint that served the archive no longer resolves

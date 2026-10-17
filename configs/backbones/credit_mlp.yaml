@@ -1,0 +1,10 @@
+credit_mlp:
+  hidden: 64
+  layers: 2
+  dropout: 0.1
+  class_weighting: inverse_prevalence
+provenance:
+  hidden: engineering_default
+  layers: engineering_default
+  dropout: engineering_default
+  class_weighting: engineering_default

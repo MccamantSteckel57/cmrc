@@ -1,0 +1,573 @@
+{
+  "project": "Distribution-Free Uncertainty Quantification for Structured Financial Prediction via Conformal Risk Control",
+  "package": "coupled_monotone_risk",
+  "overall_status": "PARTIALLY_VERIFIED",
+  "code_status": "PARTIALLY_VERIFIED",
+  "manuscript_status": "FAIL",
+  "summary": {
+    "PASS": 31,
+    "FAIL": 7,
+    "NOT_RUN": 1,
+    "BLOCKED": 1
+  },
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "2.4.3",
+    "torch": "2.11.0"
+  },
+  "checks": [
+    {
+      "id": "U01",
+      "layer": "unit",
+      "description": "empirical and conformal quantiles match their definitions",
+      "status": "PASS",
+      "evidence": {
+        "median": 50.0,
+        "conformal": 91.0,
+        "rank": 91
+      }
+    },
+    {
+      "id": "U02",
+      "layer": "unit",
+      "description": "pool-adjacent-violators returns a decreasing fit with the sample mean",
+      "status": "PASS",
+      "evidence": {
+        "fitted": [
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          2.0
+        ],
+        "residual": 2.0
+      }
+    },
+    {
+      "id": "U03",
+      "layer": "unit",
+      "description": "interval family risk is non-increasing and right-continuous",
+      "status": "PASS",
+      "evidence": {
+        "risks": [
+          0.9,
+          0.5,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "U04",
+      "layer": "unit",
+      "description": "set family size falls and risk is non-increasing in the level",
+      "status": "PASS",
+      "evidence": {
+        "sizes": [
+          1.0,
+          1.011333,
+          1.905333
+        ]
+      }
+    },
+    {
+      "id": "U05",
+      "layer": "unit",
+      "description": "point and interval metrics are zero for a perfect forecast",
+      "status": "PASS",
+      "evidence": {
+        "qlike_perfect": 0.0,
+        "winkler_perfect": 0.0,
+        "kupiec_p": 1.0
+      }
+    },
+    {
+      "id": "U07",
+      "layer": "unit",
+      "description": "HAR and its log variant fit a persistent variance series",
+      "status": "PASS",
+      "evidence": {
+        "in_sample_mse": 0.01530789,
+        "variance_of_target": 0.030903,
+        "coefficients": [
+          0.180881,
+          0.616231,
+          0.17243,
+          -0.096974
+        ]
+      }
+    },
+    {
+      "id": "U08",
+      "layer": "unit",
+      "description": "split, adaptive and quantile baselines reach the nominal level",
+      "status": "PASS",
+      "evidence": {
+        "static_holdout_coverage": 0.8985,
+        "online_mean_coverage": 0.90075,
+        "cqr_coverage": 0.91333,
+        "mean_width": 0.641906
+      }
+    },
+    {
+      "id": "U06",
+      "layer": "unit",
+      "description": "rank correlation is exact on a monotone pair",
+      "status": "PASS",
+      "evidence": {
+        "self": 1.0,
+        "paired": 0.8,
+        "closed_form": 0.8
+      }
+    },
+    {
+      "id": "I01",
+      "layer": "integration",
+      "description": "equalised allocation satisfies sum_k w_k c_k = 1 and beats the uniform split",
+      "status": "PASS",
+      "evidence": {
+        "share_identity_error": 0.0,
+        "marginal_spread": 1.327842,
+        "allocated": 7.269479,
+        "uniform": 8.393054
+      }
+    },
+    {
+      "id": "I02",
+      "layer": "integration",
+      "description": "calibrated thresholds attain the nominal level on a fresh draw",
+      "status": "PASS",
+      "evidence": {
+        "per_task_coverage": [
+          0.92575,
+          0.755,
+          0.97725
+        ],
+        "composite_risk": 0.114,
+        "gap": 0.014,
+        "target": 0.1
+      }
+    },
+    {
+      "id": "I03",
+      "layer": "integration",
+      "description": "composite loss falls along the shared axis",
+      "status": "PASS",
+      "evidence": {
+        "non_increasing_share": 1.0,
+        "start": 0.097,
+        "end": 0.0
+      }
+    },
+    {
+      "id": "I05",
+      "layer": "integration",
+      "description": "causal strata reweight the composite and normalise their weights",
+      "status": "PASS",
+      "evidence": {
+        "pooled_level": 0.0,
+        "stratified_level": 0.0,
+        "stratum_weights": [
+          0.4,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "G01",
+      "layer": "training",
+      "description": "a separable batch drives the loss down and moves the parameters",
+      "status": "PASS",
+      "evidence": {
+        "first_loss": 0.751333,
+        "final_loss": 0.002278,
+        "parameter_delta": 2.678722
+      }
+    },
+    {
+      "id": "G02",
+      "layer": "training",
+      "description": "checkpoint round-trip restores every tensor and the seed",
+      "status": "PASS",
+      "evidence": {
+        "identical": true,
+        "seed": 7,
+        "epoch": 3,
+        "bytes": 29482
+      }
+    },
+    {
+      "id": "S01",
+      "layer": "shape",
+      "description": "sequence backbones return one scalar per example",
+      "status": "PASS",
+      "evidence": {
+        "patchtst": [
+          4
+        ],
+        "mamba2": [
+          4
+        ],
+        "transformer": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "G03",
+      "layer": "gradient",
+      "description": "selective state-space gradient matches a central difference",
+      "status": "PASS",
+      "evidence": {
+        "analytic": -0.00031546138403887975,
+        "numeric": -0.00031546139311888766,
+        "relative_error": 2.8783261921983737e-08
+      }
+    },
+    {
+      "id": "R01",
+      "layer": "regression",
+      "description": "two identical calibrations return identical artefacts",
+      "status": "PASS",
+      "evidence": {
+        "level": 0.0025,
+        "identical": true
+      }
+    },
+    {
+      "id": "I04",
+      "layer": "integration",
+      "description": "credit panels train, calibrate and evaluate end to end",
+      "status": "PASS",
+      "evidence": {
+        "rows": [
+          1000,
+          30000
+        ],
+        "level": 0.012,
+        "achieved_risk": 0.093552,
+        "coverage": {
+          "german": 0.98,
+          "taiwan": 0.849
+        },
+        "width": {
+          "german": 1.705,
+          "taiwan": 1.2105
+        },
+        "bare_worst_gap_pp": 2.5,
+        "coupling_worst_gap_pp": 4.0,
+        "full_worst_gap_pp": 8.0
+      }
+    },
+    {
+      "id": "D01",
+      "layer": "data",
+      "description": "declared sources resolve under the configured data root",
+      "status": "PASS",
+      "evidence": {
+        "data_root_configured": true,
+        "present": {
+          "credit_german": "PRESENT",
+          "credit_taiwan": "PRESENT"
+        },
+        "absent": {
+          "omrl21": "ABSENT",
+          "equity_amzn": "ABSENT",
+          "equity_googl": "ABSENT",
+          "credit_home": "ABSENT",
+          "credit_lending": "ABSENT",
+          "fi2010": "ABSENT"
+        }
+      }
+    },
+    {
+      "id": "D02",
+      "layer": "data",
+      "description": "the volatility and return layers can be built from their declared sources",
+      "status": "BLOCKED",
+      "evidence": {
+        "reason": "the realized-library archive and the equity bars are not distributed",
+        "missing": [
+          "omrl21",
+          "equity_amzn",
+          "equity_googl"
+        ]
+      }
+    },
+    {
+      "id": "M01",
+      "layer": "manuscript",
+      "description": "the seven regime windows tile the calendar and sum to the printed n",
+      "status": "PASS",
+      "evidence": {
+        "total": 5735,
+        "ordered": true
+      }
+    },
+    {
+      "id": "M02",
+      "layer": "manuscript",
+      "description": "printed gaps equal the distance of the printed coverage from nominal",
+      "status": "PASS",
+      "evidence": {
+        "rows": 7,
+        "cmrc_coverage_above_static": true,
+        "cmrc_gap_below_static": true
+      }
+    },
+    {
+      "id": "M13",
+      "layer": "manuscript",
+      "description": "every printed Wald interval brackets its point estimate",
+      "status": "PASS",
+      "evidence": {
+        "rows": 7,
+        "all_bracket_point": true
+      }
+    },
+    {
+      "id": "M03",
+      "layer": "manuscript",
+      "description": "Figure 1 states the construction stays within 0.3 pp of nominal",
+      "status": "FAIL",
+      "evidence": {
+        "claim_pp": 0.3,
+        "observed_max_pp": 3.7,
+        "per_regime_pp": {
+          "R1": 3.7,
+          "R2": 0.6,
+          "R3": 3.1,
+          "R4": 0.8,
+          "R5": 2.8,
+          "R6": 0.2,
+          "R7": 3.3
+        }
+      }
+    },
+    {
+      "id": "M04",
+      "layer": "manuscript",
+      "description": "the discussion quotes the static worst-case gap from Table 4.6",
+      "status": "FAIL",
+      "evidence": {
+        "claimed_static_gap_pp": 12.4,
+        "closest_printed_pp": 12.6,
+        "printed": {
+          "R1": 4.7,
+          "R2": 12.0,
+          "R3": 6.3,
+          "R4": 12.6,
+          "R5": 5.6,
+          "R6": 11.4,
+          "R7": 6.1
+        }
+      }
+    },
+    {
+      "id": "M05",
+      "layer": "manuscript",
+      "description": "Eq. (7) and Sec. 4.7 describe the same width comparison",
+      "status": "PASS",
+      "evidence": {
+        "band": [
+          1.09,
+          1.14
+        ],
+        "cap": 1.15,
+        "both_references": "three independent calibrators each at alpha, identical to the uniform split of Eq. (7)",
+        "allocated_shares_may_exceed_one": true
+      }
+    },
+    {
+      "id": "M06",
+      "layer": "manuscript",
+      "description": "Algorithm 1 labels its phases without a gap",
+      "status": "FAIL",
+      "evidence": {
+        "phases_present": [
+          "A",
+          "C",
+          "D",
+          "E"
+        ],
+        "missing": [
+          "B"
+        ]
+      }
+    },
+    {
+      "id": "M07",
+      "layer": "manuscript",
+      "description": "the calibrated block indices are defined by a numbered statement",
+      "status": "FAIL",
+      "evidence": {
+        "sentence": "0 < t1 < t2 < t3 < N",
+        "issue": "no numbered equation or block definition accompanies the inequality"
+      }
+    },
+    {
+      "id": "M08",
+      "layer": "manuscript",
+      "description": "every panel referenced in the text is printed in Table 1",
+      "status": "FAIL",
+      "evidence": {
+        "present": [
+          "A",
+          "B"
+        ],
+        "missing": [
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "M09",
+      "layer": "manuscript",
+      "description": "Eq. (2) and Lemma 1 use the same orientation of the shared scalar",
+      "status": "FAIL",
+      "evidence": {
+        "literal_eq2_levels": [
+          1.0,
+          0.95475,
+          0.9045
+        ],
+        "note": "Eq. (2) as printed makes the composite increase in lambda while Lemma 1 asserts it falls",
+        "implemented": "shared coordinate is the shrinkage from the allocated budget"
+      }
+    },
+    {
+      "id": "M10",
+      "layer": "manuscript",
+      "description": "the Figure 3 caption is free of duplicated sentences",
+      "status": "FAIL",
+      "evidence": {
+        "phrase": "mean of at least three runs per cell",
+        "occurrences": 2
+      }
+    },
+    {
+      "id": "M11",
+      "layer": "manuscript",
+      "description": "Panel B max task gaps equal the printed coverage distances",
+      "status": "PASS",
+      "evidence": {
+        "max_abs_error_pp": 0.0,
+        "recomputed": {
+          "ACI + AR": 2.8,
+          "ACI + Transformer": 5.7,
+          "Conformal P-control + AR": 0.6,
+          "Conformal P-control + Transformer": 8.3,
+          "Conformal PI-control + AR": 0.8,
+          "Conformal PI-control + Transformer": 0.9,
+          "Clipped ACI + AR": 1.9,
+          "Split conformal": 3.2,
+          "CQR": 0.7,
+          "CMRC PatchTST": 0.5
+        }
+      }
+    },
+    {
+      "id": "M12",
+      "layer": "manuscript",
+      "description": "the abstract quotes the best published QLIKE and MSE correctly",
+      "status": "PASS",
+      "evidence": {
+        "best_published_qlike": 0.19253,
+        "best_published_mse": 0.00115,
+        "own_qlike": 0.1982
+      }
+    },
+    {
+      "id": "M14",
+      "layer": "manuscript",
+      "description": "the own-protocol rows name the backbones the method section describes",
+      "status": "PASS",
+      "evidence": {
+        "own_backbones": [
+          "CMRC PatchTST",
+          "CMRC Mamba-2",
+          "CMRC frozen TSFM",
+          "CMRC HAR"
+        ]
+      }
+    },
+    {
+      "id": "H01",
+      "layer": "hygiene",
+      "description": "shipped text carries no absolute paths and no generation markers",
+      "status": "PASS",
+      "evidence": {
+        "files_scanned": 108,
+        "hits": []
+      }
+    },
+    {
+      "id": "H02",
+      "layer": "hygiene",
+      "description": "the release ships exactly one markdown document",
+      "status": "PASS",
+      "evidence": {
+        "markdown": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "id": "H03",
+      "layer": "hygiene",
+      "description": "no shipped callable is an empty or unimplemented stub",
+      "status": "PASS",
+      "evidence": {
+        "empty_callables": []
+      }
+    },
+    {
+      "id": "H04",
+      "layer": "hygiene",
+      "description": "no six-statement block is duplicated across source files",
+      "status": "PASS",
+      "evidence": {
+        "duplicate_windows": 0,
+        "examples": []
+      }
+    },
+    {
+      "id": "H05",
+      "layer": "hygiene",
+      "description": "the module inventory covers every declared layer",
+      "status": "PASS",
+      "evidence": {
+        "modules": 70,
+        "packages": [
+          "bounds",
+          "calibration",
+          "cli",
+          "coupling",
+          "data",
+          "evaluation",
+          "metrics",
+          "models",
+          "risks",
+          "training",
+          "utils"
+        ]
+      }
+    },
+    {
+      "id": "E01",
+      "layer": "hygiene",
+      "description": "the container image builds from the shipped Dockerfile",
+      "status": "NOT_RUN",
+      "evidence": {
+        "reason": "no container runtime is installed in this environment"
+      }
+    }
+  ],
+  "notes": {
+    "valuation": "results come only from executed code paths; manuscript findings are kept separate from code findings",
+    "blocked_layers": [
+      "D02"
+    ]
+  }
+}

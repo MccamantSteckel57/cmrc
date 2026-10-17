@@ -1,0 +1,20 @@
+protocol:
+  budget: 0.10
+  window: 250
+  embargo: 22
+  train_fraction: 0.60
+  calib_fraction: 0.20
+  grid_size: 1001
+  delta: 0.05
+  shift_band: 0.0
+  strata: 3
+  seed: 13
+  horizons: [1]
+provenance:
+  budget: paper_sec_4_2_nominal_90
+  window: paper_sec_4_6_rolling_250
+  embargo: paper_sec_4_6_embargo_22
+  grid_size: paper_algorithm_1_G
+  delta: engineering_default
+  shift_band: engineering_default
+  strata: paper_remark_1_three_state

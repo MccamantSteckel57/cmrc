@@ -1,0 +1,12 @@
+study:
+  name: ablation_regime
+  reporting: false
+  strata: [off, on]
+  backbones: [credit_mlp]
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  seed: 13
+provenance:
+  strata: paper_sec_4_6_regime_validation

@@ -1,0 +1,11 @@
+mamba2:
+  context: 64
+  d_model: 64
+  d_state: 16
+  layers: 2
+  expand: 2
+  dropout: 0.0
+provenance:
+  context: engineering_default
+  d_state: engineering_default
+  layers: engineering_default

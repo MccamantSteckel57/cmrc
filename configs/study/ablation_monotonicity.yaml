@@ -1,0 +1,15 @@
+study:
+  name: ablation_monotonicity
+  reporting: false
+  levels: 33
+  sweeps: 3
+  backbones: [credit_mlp]
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  seed: 13
+provenance:
+  levels: engineering_default
+  sweeps: engineering_default
+  rationale: paper_sec_4_4_monotonicity_removal

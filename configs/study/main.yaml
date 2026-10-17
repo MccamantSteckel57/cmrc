@@ -1,0 +1,25 @@
+study:
+  name: main
+  reporting: true
+  layers: [volatility, returns, credit]
+  backbones: [patchtst, mamba2, har, credit_mlp]
+  ablation_panels: false
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.01
+  warmup_fraction: 0.05
+  grad_clip: 1.0
+  seed: 13
+  precision: fp32
+  world_size: 1
+metrics:
+  nominal: 0.90
+  bootstrap: 200
+provenance:
+  epochs: engineering_default
+  batch_size: engineering_default
+  lr: engineering_default
+  weight_decay: engineering_default
+  precision: engineering_default
